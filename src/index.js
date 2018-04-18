@@ -1,8 +1,8 @@
-import React, {PureComponent} from 'react';
+import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-export default class extends PureComponent {
+export default class extends Component {
 
     static defaultProps = {
         delay: 0,
