@@ -4,11 +4,11 @@ Simple “loader” library for ReactJS. Makes beautiful, animated loader.
 ## Installation
 Install by npm/yarn with 7c-react-loader
 
-```js
+```
 npm install 7c-react-loader --save
 ```
 or
-```js
+```
 yarn add 7c-react-loader
 ```
 
