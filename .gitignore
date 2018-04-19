@@ -1,2 +1,4 @@
-dist
-node_modules
+dist/
+node_modules/
+7c-react-loader.iml
+yarn.lock

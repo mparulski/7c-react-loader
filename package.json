@@ -14,7 +14,7 @@
   "bugs": {
     "url": "https://github.com/mparulski/7c-react-loader/issues"
   },
-  "main": "dist/bundle.js",
+  "main": "dist/index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/mparulski/7c-react-loader.git"

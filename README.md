@@ -9,7 +9,7 @@ npm install 7c-react-loader --save
 ```
 or
 ```js
-yarn add 7c-react-loader -D
+yarn add 7c-react-loader
 ```
 
 ## Basic usage
