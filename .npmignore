@@ -1,4 +1,5 @@
 node_modules/
 src/
+.babelrc
 7c-react-loader.iml
 yarn.lock
