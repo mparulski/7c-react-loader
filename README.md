@@ -21,13 +21,14 @@ import Loader from '7c-react-loader';
 </Loader>
 ```
 
-## Props
+## Properties
 | Prop name | Is required | Type of value | Description | Default value |
 | ---       | --- | ---                                                                         | --- | ---               |
-| loaded    | YES | boolean                                                                     | For 'true' CSS classes defined in className prop will be added to <Loader> element       | -                 |
-| delay     | NO  | integer                                                                     | Delayed defined in milliseconds after with CSS classes will be applied to <Loader> element | 0                 |
-| className | NO  | Any type accepted by [classNames](https://www.npmjs.com/package/classnames) | CSS classes that will be added to <Loader> element for loader={true}                     | "7c-react-loader" |
-| children  | NO  | element                                                                     | Content to render | -                 |
+| loaded    | YES | boolean                                                                     | For 'true' CSS classes defined in className prop will be added to <Loader> element         | -                   |
+| children  | NO  | element                                                                     | Content to render                                                                          | -                   |
+| className | NO  | Any type accepted by [classNames](https://www.npmjs.com/package/classnames) | CSS classes that will be added to <Loader> element for loader={true}                       | "7c-react-loader"   |
+| delay     | NO  | integer                                                                     | Delayed defined in milliseconds after with CSS classes will be applied to <Loader> element | 0                   |
+| tag       | NO  | string or function                                                          | Tag of <Loader> component                                                                  | div                 |
 
 ## Usage
 CSS classes (default: "7c-react-loader") will be applied to <Loader> element immediately. Children props will be rendered regardless of that.

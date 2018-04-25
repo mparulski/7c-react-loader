@@ -5,8 +5,9 @@ import classNames from 'classnames';
 export default class extends Component {
 
     static defaultProps = {
+        className: '7c-react-loader',
         delay: 0,
-        className: '7c-react-loader'
+        tag: 'div'
     };
 
     static propTypes = {
@@ -17,7 +18,11 @@ export default class extends Component {
             PropTypes.array,
             PropTypes.instanceOf(classNames)
         ]),
-        children: PropTypes.element
+        children: PropTypes.element,
+        tag: PropTypes.oneOfType([
+            PropTypes.func,
+            PropTypes.string
+        ]),
     };
 
     constructor(props) {
@@ -38,17 +43,18 @@ export default class extends Component {
     }
 
     render() {
-        const {loaded, className, children} = this.props;
+        const {children, className, loaded, tag} = this.props;
         const loaderClassName = classNames({[className]: loaded});
+        const Tag = tag;
 
         if (!this.state.isShownDelayedLoader) {
             return null;
         }
 
         return (
-            <div className={loaderClassName}>
+            <Tag className={loaderClassName}>
                 {children}
-            </div>
+            </Tag>
         )
     }
 }
