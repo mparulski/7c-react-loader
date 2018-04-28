@@ -1,6 +1,6 @@
 {
   "name": "7c-react-loader",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "license": "MIT",
   "author": "michal.parulski@gmail.com",
   "description": "Loader for ReactJS components",
@@ -8,6 +8,8 @@
     "7c-react-loader",
     "loader",
     "react",
+    "react-component",
+    "react-loader",
     "reactjs"
   ],
   "homepage": "https://github.com/mparulski/7c-react-loader#readme",
@@ -24,8 +26,7 @@
   },
   "dependencies": {
     "classnames": "^2.2.5",
-    "react": "^16.3.2",
-    "react-dom": "^16.3.2"
+    "react": "^16.3.2"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",

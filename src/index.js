@@ -2,23 +2,33 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-export default class extends Component {
+const _manageDelayTimer = Symbol();
+
+export default class Loader extends Component {
 
     static defaultProps = {
-        className: '7c-react-loader',
+        activeClassName: '7c-react-loader-active',
+        children: null,
         delay: 0,
+        disabledClassName: '7c-react-loader-disabled',
         tag: 'div'
     };
 
     static propTypes = {
-        loaded: PropTypes.bool.isRequired,
-        delay: PropTypes.number,
-        className: PropTypes.oneOfType([
+        active: PropTypes.bool.isRequired,
+        activeClassName: PropTypes.oneOfType([
             PropTypes.string,
             PropTypes.array,
             PropTypes.instanceOf(classNames)
         ]),
         children: PropTypes.element,
+        delay: PropTypes.number,
+        disabledClassName: PropTypes.oneOfType([
+            PropTypes.string,
+            PropTypes.array,
+            PropTypes.instanceOf(classNames)
+        ]),
+        duration: PropTypes.number,
         tag: PropTypes.oneOfType([
             PropTypes.func,
             PropTypes.string
@@ -29,32 +39,56 @@ export default class extends Component {
         super(props);
 
         this.state = {
-            isShownDelayedLoader: props.delay === 0,
-            removeComponent: false
+            isLoaderActive: false
         };
     }
 
+    static getDerivedStateFromProps(nextProps, prevState) {
+        return {isLoaderActive: !prevState.isLoaderActive && nextProps.active && nextProps.delay === 0};
+
+    }
+
     componentDidMount() {
-        this.loaderTimerId = setTimeout(() => this.setState({isShownDelayedLoader: true}), this.props.delay);
+        this[_manageDelayTimer]();
+    }
+
+    componentDidUpdate() {
+        this[_manageDelayTimer]();
     }
 
     componentWillUnmount() {
-        clearInterval(this.loaderTimerId);
+        clearInterval(this.delayedTimerId);
     }
 
     render() {
-        const {children, className, loaded, tag} = this.props;
-        const loaderClassName = classNames({[className]: loaded});
+        const {children, activeClassName, disabledClassName, tag} = this.props;
+        const {isLoaderActive} = this.state;
+        const className = classNames({
+            [activeClassName]: isLoaderActive,
+            [disabledClassName]: !isLoaderActive
+        });
         const Tag = tag;
 
-        if (!this.state.isShownDelayedLoader) {
-            return null;
-        }
-
         return (
-            <Tag className={loaderClassName}>
+            <Tag className={className}>
                 {children}
             </Tag>
         )
+    }
+
+    [_manageDelayTimer]() {
+        const {active, delay} = this.props;
+        const {isLoaderActive} = this.state;
+
+        if (!this.delayedTimerId && active && !isLoaderActive && delay > 0) {
+            this.delayedTimerId = setTimeout(() => this.setState((prevState, props) => {
+                return {isLoaderActive: props.active}
+            }), delay);
+        }
+
+        if (this.delayedTimerId && !active) {
+            clearTimeout(this.delayedTimerId);
+            this.delayedTimerId = null;
+        }
     }
 }
