@@ -46,7 +46,7 @@ CSS classes will be applied to <Loader> after 500 milliseconds.
 ```
 
 CSS class "loader-active" will be applied to <Loader> after 500 milliseconds. Otherwise will be applied "loader-disabled" CSS class.
-<Loader> element will be rendered as "span".
+Loader element will be rendered as "span".
 ```js
 <Loader active={true} activeClassName="loader-active" disabledClassName="loader-disabled" tag="span" delay={500}>
    ...

@@ -22,7 +22,8 @@
     "url": "git+https://github.com/mparulski/7c-react-loader.git"
   },
   "scripts": {
-    "build": "babel -w src/ -d dist -s"
+    "build": "babel -w src/ -d dist -s",
+    "test": "jest"
   },
   "dependencies": {
     "classnames": "^2.2.5",
@@ -31,9 +32,14 @@
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
+    "babel-jest": "^22.4.3",
     "babel-loader": "^7.1.4",
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
-    "babel-preset-stage-2": "^6.24.1"
+    "babel-preset-stage-2": "^6.24.1",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "enzyme-to-json": "^3.3.3",
+    "jest": "^22.4.3"
   }
 }
