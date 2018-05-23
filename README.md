@@ -29,7 +29,7 @@ import Loader from '7c-react-loader';
 | activeClassName | NO  | Any type accepted by [classNames](https://www.npmjs.com/package/classnames) | CSS classes that will be added to <Loader> element when it is active | "7c-react-loader-active" |
 | delay | NO | integer | Delayed defined in milliseconds after with CSS classes will be applied to <Loader> element | 0 |
 | disabledClassName | NO | Any type accepted by [classNames](https://www.npmjs.com/package/classnames) | CSS classes that will be added to <Loader> element when it isn't active (is disabled)| "7c-react-loader-disabled" |
-| tag | NO  | string or function | Tag of <Loader> component | div |
+| tag | NO  | string | Tag of <Loader> component | div |
 
 ## Usage
 CSS classes (default: "7c-react-loader-active") will be applied to <Loader> element immediately. Children props will be rendered regardless of that.

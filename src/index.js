@@ -28,11 +28,7 @@ export default class Loader extends Component {
             PropTypes.array,
             PropTypes.instanceOf(classNames)
         ]),
-        duration: PropTypes.number,
-        tag: PropTypes.oneOfType([
-            PropTypes.func,
-            PropTypes.string
-        ]),
+        tag: PropTypes.string
     };
 
     constructor(props) {

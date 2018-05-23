@@ -1,6 +1,12 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 0.3.1
+### Added
+- tests
+### Fixed
+- tag prop can be only set as a string
+
 ## 0.3.0
 ### Added
 - disabledClassName prop
